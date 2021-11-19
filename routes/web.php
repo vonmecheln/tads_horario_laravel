@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Curso;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/cursos', function(){
+    
+    $list = Curso::all();
+    dd($list);
+
+    return "<h1>Lista de Cursos</h1>";
 });

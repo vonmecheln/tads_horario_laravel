@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Curso;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CursoFactory extends Factory
 {
@@ -22,7 +23,7 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome' => 'Curso ' . Str::random(5)
         ];
     }
 }
