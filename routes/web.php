@@ -20,8 +20,10 @@ Route::get('/', function () {
 
 Route::get('/cursos', function(){
     
-    $list = Curso::all();
-    dd($list);
+    $curso = Curso::first();
+    $turmas = $curso->turmas()->get();
+
+    dd($turmas);
 
     return "<h1>Lista de Cursos</h1>";
 });

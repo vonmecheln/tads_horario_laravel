@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Curso;
 use Illuminate\Database\Seeder;
 
-class CursoSeeder extends Seeder
+class TurmaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +13,6 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        Curso::factory(10)
-        ->create();
+        //
     }
 }
