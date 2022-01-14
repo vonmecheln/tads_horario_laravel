@@ -1,22 +1,37 @@
 <?php
 
 use App\Models\Curso;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/curso/create', function () {
+    return view('curso.create');
+});
+
+Route::post('/curso', function(Request $request){
+    
+    $curso = new Curso();
+    $curso->nome = $request->nome;
+    $curso->save();
+
+    redirect("/");
+});
+
+Route::get('/curso/edit/{id}', function ($id) {
+    $curso = Curso::findOrFail($id);
+    return view('curso.edit', ['curso'=>$curso]);
+});
+
+Route::put('/curso/update/{id}', function ($id, Request $request) {
+    $curso = Curso::findOrFail($id);
+    $curso->nome = $request->nome;
+    $curso->save();
+});
+
 
 Route::get('/cursos', function(){
     
